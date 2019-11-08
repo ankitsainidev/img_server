@@ -121,8 +121,8 @@ AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend','images.a
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-RECAPTCHA_PUBLIC_KEY = '6LdyabwUAAAAAKibULG3c_dIW04Btr9s05-V3J16'
-RECAPTCHA_PRIVATE_KEY = '6LdyabwUAAAAAG0NGhABcoODP2QB0zwlzeZdImH9'
+RECAPTCHA_PUBLIC_KEY = '********' #generate and paste the keys. Head over to google recaptcha admin(project) panel.
+RECAPTCHA_PRIVATE_KEY = '******'
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
