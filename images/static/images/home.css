@@ -1,0 +1,55 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+h2{
+    width: 10vw;
+}
+h3{
+    width: 10vw;
+}
+.thumbnail{
+    height: 3rem;
+    width: 2.5rem;
+    object-fit: cover;
+}
+.newclient{
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+.clientlist >p>span{
+    font-size: 2rem;
+    text-align: center;
+}
+.clientinfo{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    justify-items: space-around;
+    align-items: center;
+}
+.actions{
+    display: flex;
+    justify-content: space-around;
+}
+.actions >button{
+    margin: 2px;
+    width: max-content;
+    height: 2rem;
+}
+.client{
+    display: flex;
+    align-items: center;
+}
+@media only screen and (max-width:600px){
+    .client{
+        flex-direction: column;
+    }
+    .actions{
+        width: 100%;
+    }
+    .actions button{
+        font-size: 1.2rem;
+        
+    }
+}

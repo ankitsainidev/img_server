@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <META NAME="ROBOTS" CONTENT="NOINDEX,NOFOLLOW">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static "images/login.css" %}">
+    <title>Image</title>
+</head>
+
+<body>
+    
+    <div class="form-container">
+    <form action="." method="POST">
+        {{form.as_p}}
+        {% csrf_token %}
+        <p><input type="submit" value="Log in"></p>
+    </form>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+{% extends "images/base.html" %}
+{% block nav %}
+<a href="/">Home</a>
+<a href="/passwordChange">Change Password</a>
+<a href="/logout">Logout</a>
+{% endblock nav %}
+{% block content %}
+<div class="drives">
+    
+        {% for categorie in categories %}
+        <div class="drivedetail">
+          <div class='info'>
+            <span>{{forloop.counter}}). {{categorie.0}} </span>
+            <span> FREE: {{categorie.2}}gb</span></div>
+            <a href="/syncdrive/{{forloop.counter|add:-1}}"><button>sync</button></a>
+          <progress value="{{categorie.3}}"></progress>
+        </div>
+        {% endfor %}
+        <a href="/syncdrive"><button> Sync all together </button></a>
+      </div>
+{% endblock %}

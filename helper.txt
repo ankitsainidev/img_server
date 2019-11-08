@@ -1,0 +1,9 @@
+$pip install django
+$pip install filetype
+$pip install django-recatcha
+$pip install pillow
+$python manage.py makemigrations
+$python manage.py migrate
+$python manage.py runserver
+To create first user
+$python manage.py createsuperuser

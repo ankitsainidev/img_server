@@ -1,0 +1,59 @@
+{% extends 'images/base.html' %}
+{% block content %}
+{% load static %}
+
+<h1>Name: {{name}}</h1>
+<p>
+
+    {% for image in images %}
+
+    <a href="/media/{{image}}">
+        <img src="/media/{{image}}" height="60px" alt=""></a>
+    {% if images|length != 1 %}
+    <a href="/deleteImage/{{name}}/{{image}}">Delete</a>{% endif %}{% endfor %}
+</p>
+<p>
+    <button><a href="/media/{{textpath}}">text file</a></button>
+</p>
+drives: {{thumbs}}
+<form action="/clientdetail/{{name}}" method="post" enctype="multipart/form-data">
+    <h2>Edit Client.</h2> 
+    <h4>(leave fields empty which are not to be changed)</h4>
+    <h2>{{message}}</h2>
+    <p><label for="id_name">Name:</label> <input type="text" name="name" id="id_name"></p>
+    <p><label for="id_thumbs">Thumbs:</label>
+        <input type="text" name="thumbs" hidden='' id="id_thumbs" pattern="[0-9]{1,20}" inputmode="numeric"
+            style="box-decoration-break: unset" maxlength="20">
+        <div class="checkboxlist">
+            {% for drive in categories %}
+            <div class="checkbox">
+                <input class="no" type="checkbox" id="driveinput_{{forloop.counter}}" onclick="update(this)">
+                <label for="driveinput_{{forloop.counter}}"><span>{{forloop.counter}}.) {{drive.0}}</span> </label>
+            </div>
+
+            {% endfor %}
+            
+        </div>
+    </p>
+
+    <p><label for="id_textfile">Textfile:</label> <input type="file" name="textfile" accept="text/*"
+            id="id_textfile"></p>
+    <fieldset>
+        <legend>Images</legend>
+        {% if images|length > 1 %}
+            <span>Delete Images So you can Add more.</span>
+        {% endif %}
+        <p> <input type="file" hidden='' name="image" accept="image/*"  id="id_image"></p>
+        <p> <input type="file" hidden='' name="image1" accept="image/*" id="id_image1"></p>
+        
+    </fieldset>{% csrf_token %}
+    <button type="submit">submit</button>
+</form>
+<script src="{% static 'images/newClient.js' %}"></script>
+<script>
+    var ids = ['id_image','id_image1']
+    for(var i=0;i<3-{{images|length}};i++){
+        document.getElementById(ids[i]).removeAttribute('hidden');
+    }
+</script>
+{% endblock content %}

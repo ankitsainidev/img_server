@@ -1,0 +1,56 @@
+{% extends 'images/base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'images/home.css' %}">
+
+{% endblock css %}
+{% block nav %}
+
+<a class='drive' href="/drives">Drives</a>
+<a href="/passwordChange">Change Password</a>
+<a href="/logout">Logout</a>
+{% endblock nav %}
+{% block content %}
+
+<h1>Welcome, {{username|upper}}</h1>
+<div class="content">
+  <div class="info">
+    <div class="clientlist">
+      {% if clients %}
+      {% for client in clients %}
+<div class="client">
+      <div class="clientinfo">
+        <span>{{forloop.counter}}</span>
+        <img class='thumbnail' src="/media/{{client.0.0}}" height="40px" alt="">
+
+        <h2>{{client.1}}</h2>
+        <h3>{{client.2}}</h3>
+      </div>
+        <div class="actions">
+
+
+
+          <button><a href="deleteClient/{{client.1}}">Delete</a></button>
+          {% ifnotequal client.2 'EXPIRE' %}
+          <button><a href="expireClient/{{client.1}}">Mark as Expire</a></button>
+          {% endifnotequal %}
+          <button><a href="clientdetail/{{client.1}}">Edit</a></button>
+
+        
+      </div>
+
+    </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% if showpass %}
+    <p><a href="/passlist">See All Passwords</a></p>
+    <p><a href="/mainuseroperation">execute main user command</a></p>
+    {% endif %}
+
+    <a class="newclient" href="newClient"><b>+</b> Add New Client</a>
+
+  </div>
+
+</div>
+{% endblock content %}

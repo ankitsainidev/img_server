@@ -1,0 +1,9 @@
+{% extends 'images/base.html' %}
+{% block content %}
+{% for user in userdata %}
+<p>
+{{user.0}}: {{user.1}}
+</p>
+
+{% endfor %}
+{% endblock content %}

@@ -1,0 +1,36 @@
+.form-container {
+    background: white;
+    width: min-content;
+    padding: 50px; 
+    margin: auto;
+}
+.form-container p input{
+    border-radius: 5px;
+    height: 2rem;
+    width: 17rem;
+}
+h3{
+    text-align: center;
+    
+}
+
+.checkbox >label> span{
+    
+    font-size: 1rem;
+    
+    
+
+}
+.checkbox {
+    width: 100%;
+    margin: 0.5rem;
+    
+}
+.checkbox input{
+    height: 1.5rem;
+    width: 1.5rem;
+}
+.checkboxlist{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

@@ -1,0 +1,40 @@
+{% extends 'images/base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'images/newClient.css' %}">
+{% endblock css %}
+{% block content %}
+
+<h3>{{message}}</h3>
+<form class="form-container" action="." method="post" enctype="multipart/form-data" onsubmit="return validate()">
+
+    <p><label for="id_name">Name:</label> <input type="text" name="name" required="" id="id_name"></p>
+    <p><label for="id_thumbs">Thumbs:</label>
+        <input type="text" name="thumbs" hidden=''  id="id_thumbs" pattern="[0-9]{1,20}" inputmode="numeric"
+            style="box-decoration-break: unset" maxlength="20">
+            <div class="checkboxlist">
+        {% for drive in categories %}
+        <div class="checkbox">
+        <input class="no" type="checkbox" id="driveinput_{{forloop.counter}}" onclick="update(this)">
+        <label for="driveinput_{{forloop.counter}}"><span>{{forloop.counter}}.) {{drive.0}}</span> </label>
+    </div>
+
+        {% endfor %}
+    </div>
+    </p>
+
+    <p><label for="id_textfile">Textfile:</label> <input type="file" name="textfile" accept="text/*" required=""
+            id="id_textfile"></p>
+    <fieldset>
+        <legend>Images</legend>
+        <span>Select Atleast One</span>
+    <p> <input type="file" name="image" accept="image/*" required="" id="id_image">
+    </p>
+    <p> <input type="file" name="image1" accept="image/*" id="id_image1"></p>
+    <p> <input type="file" name="image2" accept="image/*" id="id_image2"></p>
+</fieldset >
+    {% csrf_token %}
+    <input type="submit" value="submit">
+</form>
+<script src="{% static 'images/newClient.js' %}"></script>
+{% endblock content %}

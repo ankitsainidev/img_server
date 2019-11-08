@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <META NAME="ROBOTS" CONTENT="NOINDEX,NOFOLLOW">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block css %}
+    {% endblock css %}
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static "images/base.css" %}">
+    <style>
+        {% if warning %}
+        .drive{
+            color: red;
+
+        }
+        {% endif %}
+    </style>
+    <title>Image</title>
+</head>
+
+<body>
+    
+    <nav>
+        {% block nav %}
+        <a href="/">Home</a>
+        <a class='drive' href="/drives">Drives</a>
+        <a href="/logout">Logout</a>
+        {% endblock nav %}
+    </nav>
+    <main>
+        
+        {% block content %}
+        {% endblock content %}
+    </main>
+</body>
+
+</html>

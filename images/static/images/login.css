@@ -1,0 +1,16 @@
+body{
+    background: rgb(247, 245, 245);
+}
+.form-container {
+    background: white;
+    width: 18rem;
+    padding: 50px; 
+    margin: auto;
+    
+}
+.form-container p input{
+    margin: auto;
+    border-radius: 5px;
+    height: 2rem;
+    width: 100%
+}
